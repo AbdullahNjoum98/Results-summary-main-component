@@ -1,0 +1,191 @@
+@font-face {
+    font-family: HankenGrotesk;
+    src: url('/assets/fonts/HankenGrotesk-VariableFont_wght.ttf');
+}
+:root {
+    /* Colors */
+    --purple: #4f38f4;
+    --blue: #3843bc;
+    --light-blue: #b8aafc;
+    --dark-navy-blue: rgb(34, 34, 86);
+    --navy-blue: #2B35A4;
+    --light-grey: rgb(184, 177, 177);
+    --watermelon: #D76A6B;
+    --light-watermelon: #fef6f5;
+    --yellow: #FFBE53;
+    --light-yellow: #fefbf2;
+    --green: #46B59B;
+    --light-green: #f2faf9;
+    --light-navy-blue: #F3F3FD;
+    --shadow-color: rgb(211, 228, 247);
+    --circle-background-color: linear-gradient(var(--blue), var(--purple));
+    /* Font Weights */
+    --bolder: 800;
+    --bold: 600;
+    --normal: 500;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: HankenGrotesk;
+}
+/************
+COMMON STYLES
+************/
+.container {
+    display: flex;
+    width: 40%;
+}
+.summary-container, .result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1.2rem;
+    width: 50%;
+    padding: 4% 3%;
+    border-radius: 1.4rem;
+}
+/**********
+RESULT STYLES
+***********/
+.result-container {
+    color: white;
+    background-color: var(--purple);
+    align-items: center;
+    z-index: 1;
+}
+.result-container .header {
+    color: var(--light-blue);
+    font-weight: var(--bolder);
+}
+.result-container .score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 58%;
+    border-radius: 50rem;
+    padding: 13% 21%;
+    background: var(--circle-background-color);
+}
+.result-container .score div:first-child {
+    font-size: 3rem;
+    font-weight: var(--bolder);
+}
+.result-container .score div:nth-child(2) {
+    font-size: 0.7rem;
+    font-weight: var(--normal);
+    color: var(--light-blue);
+}
+.result-container .feedback {
+    font-size: 1.5rem;
+    font-weight: var(--normal);
+}
+.result-container .description {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--light-blue);
+    width: 75%;
+    font-weight: var(--normal);
+}
+/**********
+SUMMARY STYLES
+***********/
+.summary-container {
+    box-shadow: 1px 1px 25px var(--shadow-color);
+    margin-left: -5%;
+    font-size: 0.75rem;
+}
+.summary-container .summary {
+    font-weight: var(--bolder);
+    font-size: 0.9rem;
+    margin-left: 15%;
+    color: var(--dark-navy-blue);
+}
+.summary-container .boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.summary-container .boxes [class^="box-"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3%;
+    border-radius: 0.5rem;
+    font-weight: var(--bold);
+    width: 80%;
+    margin-left: 15%;
+}
+.summary-container .boxes [class^="box-"] .icon-name {
+    display: flex;
+    gap: 0.5rem;
+}
+.summary-container .continue-button button {
+    margin-left: 15%;
+    margin-top: 3%;
+    width: 80%;
+    background-color: var(--dark-navy-blue);
+    color: white;
+    padding: 4%;
+    border-radius: 2rem;
+    border: none;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+.summary-container .continue-button button:active {
+    opacity: 0.8;
+}
+.summary-container .boxes [class^="box-"] .percentage {
+    font-weight: var(--normal);
+    color: var(--light-grey);
+}
+.summary-container .boxes .box-1 {
+    background-color: var(--light-watermelon);
+    color: var(--watermelon);
+}
+.summary-container .boxes .box-2 {
+    background-color: var(--light-yellow);
+    color: var(--yellow);
+}
+.summary-container .boxes .box-3 {
+    background-color: var(--light-green);
+    color: var(--green);
+}
+.summary-container .boxes .box-4 {
+    background-color: var(--light-navy-blue);
+    color: var(--navy-blue);
+}
+.summary-container .boxes [class^="box-"] div b {
+    color: var(--dark-navy-blue);
+}
+/***********
+MEDIA QUERIES 
+***********/
+@media(min-width:320px) and (max-width: 400px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+    }
+    .summary-container {
+        width: 100%;
+        margin-left: 0;
+    }
+    .summary-container .summary,
+    .summary-container .boxes [class^="box-"],
+    .summary-container .continue-button button {
+        margin-left: 10%;
+    }
+
+    .result-container {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
